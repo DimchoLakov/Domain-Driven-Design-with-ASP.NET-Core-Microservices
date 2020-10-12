@@ -11,5 +11,17 @@
             public const int MaxUrlLength = 2048;
             public const int Zero = 0;
         }
+
+        public class Address
+        {
+            public const int MinAddressLineLength = 2;
+            public const int MaxAddressLineLength = 64;
+            public const int MinTownLength = 2;
+            public const int MaxTownLength = 64;
+            public const int MinPostCodeLength = 4;
+            public const int MaxPostCodeLength = 64;
+            public const int MinCountryLength = 4;
+            public const int MaxCountryLength = 64;
+        }
     }
 }
