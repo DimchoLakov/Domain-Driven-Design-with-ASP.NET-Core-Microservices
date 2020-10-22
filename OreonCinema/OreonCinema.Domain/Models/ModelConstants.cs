@@ -23,5 +23,39 @@
             public const int MinCountryLength = 4;
             public const int MaxCountryLength = 64;
         }
+
+        public class Movie
+        {
+            public const int MinTitleLength = 1;
+            public const int MaxTitleLength = 128;
+            public const int MinRating = 1;
+            public const int MaxRating = 5;
+            public const int MinReleaseYear = 1930;
+            public const int MinReleaseMonth = 1;
+            public const int MinReleaseDay = 1;
+            public const int MaxReleaseYear = 3000;
+            public const int MaxReleaseMonth = 1;
+            public const int MaxReleaseDay = 1;
+        }
+
+        public class Cinema
+        {
+            public const int MinNameLength = 2;
+            public const int MaxNameLength = 128;
+            public const string PhoneRegexPattern = @"^(\+)?([ 0-9]){6,16}$";
+        }
+
+        public class Payment
+        {
+            public const decimal MinAmount = 0.01m;
+            public const decimal MaxAmount = 100m;
+        }
+
+        public class Seat
+        {
+            public const string RowLetterRegexPattern = "[A-Z]{1}";
+            public const int MinRowNumber = 1;
+            public const int MaxRowNumber = 30;
+        }
     }
 }

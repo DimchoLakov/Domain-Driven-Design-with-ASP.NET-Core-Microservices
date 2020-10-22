@@ -2,6 +2,7 @@
 {
     using Exceptions;
     using System;
+    using System.Text.RegularExpressions;
 
     public static class Guard
     {
@@ -13,7 +14,7 @@
                 return;
             }
 
-            ThrowException<TException>($"{name} cannot be null ot empty.");
+            ThrowException<TException>($"{name} cannot be null or empty.");
         }
 
         public static void ForStringLength<TException>(string value, int minLength, int maxLength, string name = "Value")
@@ -72,6 +73,43 @@
             }
 
             ThrowException<TException>($"{name} must not be {unexpectedValue}.");
+        }
+
+        public static void AgainstDateOverlap<TException>(DateTime startDate, DateTime endDate, string startDateName = "Value", string endDateName = "Value")
+            where TException : BaseDomainException, new()
+        {
+            if (startDate < endDate)
+            {
+                return;
+            }
+
+            ThrowException<TException>($"{startDateName} must not be after {endDateName}.");
+        }
+
+        public static void AgainstDateOutOfRange<TException>(DateTime actualDateTime, DateTime minDateTime, DateTime maxDateTime, string name = "Value")
+            where TException : BaseDomainException, new()
+        {
+            if (actualDateTime > minDateTime &&
+                actualDateTime < maxDateTime)
+            {
+                return;
+            }
+
+            ThrowException<TException>($"{name} must be in range \"{minDateTime}\" and \"{maxDateTime}\".");
+        }
+
+        public static void ForRegex<TException>(string value, string pattern, string name = "Value")
+            where TException : BaseDomainException, new()
+        {
+            var regex = new Regex(pattern);
+            Match match = regex.Match(value);
+
+            if (match.Success)
+            {
+                return;
+            }
+
+            ThrowException<TException>($"{name} does not match regex pattern \"{pattern}\".");
         }
 
         private static void ThrowException<TException>(string message)

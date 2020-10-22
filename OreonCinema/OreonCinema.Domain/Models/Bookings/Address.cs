@@ -2,6 +2,7 @@
 {
     using Common;
     using OreonCinema.Domain.Exceptions;
+
     using static ModelConstants.Address;
 
     public class Address : ValueObject
@@ -13,10 +14,10 @@
             string country)
         {
             this.Validate(
-                this.AddressLine,
-                this.PostCode,
-                this.Town,
-                this.Country);
+                addressLine,
+                postCode,
+                town,
+                country);
 
             this.AddressLine = addressLine;
             this.PostCode = postCode;

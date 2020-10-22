@@ -1,8 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using OreonCinema.Domain.Factories;
-
-namespace OreonCinema.Domain
+﻿namespace OreonCinema.Domain
 {
+    using Microsoft.Extensions.DependencyInjection;
+    using OreonCinema.Domain.Factories;
+
     public static class DomainConfiguration
     {
         public static IServiceCollection AddDomain(this IServiceCollection services) =>
