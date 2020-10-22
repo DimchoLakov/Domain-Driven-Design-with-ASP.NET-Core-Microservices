@@ -1,7 +1,7 @@
 ﻿namespace OreonCinema.Domain
 {
+    using Common;
     using Microsoft.Extensions.DependencyInjection;
-    using OreonCinema.Domain.Factories;
 
     public static class DomainConfiguration
     {
