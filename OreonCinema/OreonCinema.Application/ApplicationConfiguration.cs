@@ -1,10 +1,11 @@
 ﻿namespace OreonCinema.Application
 {
     using AutoMapper;
+    using Behaviours;
+    using Common;
     using MediatR;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
-    using OreonCinema.Application.Behaviours;
     using System.Reflection;
 
     public static class ApplicationConfiguration
