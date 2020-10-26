@@ -57,5 +57,11 @@
             public const int MinRowNumber = 1;
             public const int MaxRowNumber = 30;
         }
+
+        public class Screen
+        {
+            public const int MinNameLength = 2;
+            public const int MaxNameLength = 64;
+        }
     }
 }

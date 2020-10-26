@@ -16,7 +16,6 @@
         internal Cinema(
             string name, 
             string phone, 
-            int seatCapacity, 
             Address address)
         {
             this.Validate(name, phone);
@@ -24,7 +23,6 @@
             this.Name = name;
             this.Phone = phone;
             this.Address = address;
-            this.SeatCapacity = seatCapacity;
 
             this.screens = new HashSet<Screen>();
         }
@@ -33,7 +31,6 @@
         {
             this.Name = default!;
             this.Phone = default!;
-            this.SeatCapacity = default!;
             this.Address = default!;
 
             this.screens = new HashSet<Screen>();
@@ -43,7 +40,7 @@
 
         public string Phone { get; private set; }
 
-        public int SeatCapacity { get; private set; }
+        public int SeatCapacity => this.screens.SelectMany(s => s.Seats).Count();
 
         public Address Address { get; private set; }
 
@@ -71,5 +68,16 @@
 
             Guard.ForStringLength<InvalidCinemaException>(name, MinNameLength, MaxNameLength, nameof(this.Name));
         }
+
+        public void UpdateAddress(
+            string addressLine,
+            string postCode,
+            string town,
+            string country)
+            => this.Address = new Address(
+                addressLine, 
+                postCode, 
+                town, 
+                country);
     }
 }
