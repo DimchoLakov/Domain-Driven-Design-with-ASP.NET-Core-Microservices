@@ -20,8 +20,8 @@
         private bool isSeatSet = false;
         private bool isBookingStatusSet = false;
 
-        public IBookingFactory WithCinema(string name, string phone, int seatCapacity, Address address)
-            => this.WithCinema(new Cinema(name, phone, seatCapacity, address));
+        public IBookingFactory WithCinema(string name, string phone, Address address)
+            => this.WithCinema(new Cinema(name, phone, address));
 
         public IBookingFactory WithCinema(Cinema cinema)
         {
