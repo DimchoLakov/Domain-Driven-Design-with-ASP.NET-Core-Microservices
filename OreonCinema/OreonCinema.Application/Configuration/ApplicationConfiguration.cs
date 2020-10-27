@@ -1,8 +1,7 @@
-﻿namespace OreonCinema.Application
+﻿namespace OreonCinema.Application.Configuration
 {
     using AutoMapper;
     using Behaviours;
-    using Common;
     using MediatR;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;

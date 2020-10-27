@@ -22,4 +22,8 @@
     <ProjectReference Include="..\OreonCinema.Domain\OreonCinema.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Bookings\" />
+  </ItemGroup>
+
 </Project>
