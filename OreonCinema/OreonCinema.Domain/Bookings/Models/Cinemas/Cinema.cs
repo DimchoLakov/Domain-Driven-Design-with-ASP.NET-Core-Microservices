@@ -79,5 +79,27 @@
                 postCode, 
                 town, 
                 country);
+
+        public void ChangeName(string name)
+        {
+            this.ValidateName(name);
+            this.Name = name;
+        }
+
+        public void UpdatePhone(string phone)
+        {
+            this.ValidatePhone(phone);
+            this.Phone = phone;
+        }
+
+        public void AddScreen(string name, bool isAvailable)
+        {
+            this.AddScreen(new Screen(name, isAvailable));
+        }
+
+        public void AddScreen(Screen screen)
+        {
+            this.screens.Add(screen);
+        }
     }
 }

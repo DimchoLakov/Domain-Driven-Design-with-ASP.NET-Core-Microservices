@@ -80,7 +80,7 @@
                 !this.isSeatSet ||
                 !this.isBookingStatusSet)
             {
-                throw new InvalidBookingException("Cinema, Movie, Screen, Seat and BookingStatus must have a value.");
+                throw new InvalidBookingException("Cinema, Movie, Screen, Seat and BookingStatus must have values.");
             }
 
             return new Booking(

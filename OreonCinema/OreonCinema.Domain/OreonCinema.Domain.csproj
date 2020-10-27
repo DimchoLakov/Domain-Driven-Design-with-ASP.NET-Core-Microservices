@@ -35,7 +35,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Bookings\Factories\Cinemas\" />
     <Folder Include="Bookings\Events\" />
     <Folder Include="Bookings\Specifications\" />
     <Folder Include="Bookings\Repositories\" />

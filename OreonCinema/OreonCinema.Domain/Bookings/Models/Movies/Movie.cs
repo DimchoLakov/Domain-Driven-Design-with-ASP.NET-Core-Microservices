@@ -78,5 +78,10 @@
                 MaxTitleLength,
                 nameof(this.Title));
         }
+
+        public void AddScreen(Screen screen)
+        {
+            this.screens.Add(screen);
+        }
     }
 }
