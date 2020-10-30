@@ -57,5 +57,19 @@
         {
             return $"{this.RowNumber}{this.RowLetter}";
         }
+
+        public void UpdateRowNumber(int rowNumber)
+        {
+            this.ValidateRowNumber(rowNumber);
+
+            this.RowNumber = rowNumber;
+        }
+
+        public void UpdateRowLetter(string rowLetter)
+        {
+            this.ValidateRowLetter(rowLetter);
+
+            this.RowLetter = rowLetter;
+        }
     }
 }

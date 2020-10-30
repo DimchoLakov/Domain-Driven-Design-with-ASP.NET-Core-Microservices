@@ -83,5 +83,27 @@
         {
             this.screens.Add(screen);
         }
+
+        public void UpdateRating(int rating)
+        {
+            this.ValidateRating(rating);
+
+            this.Rating = rating;
+        }
+
+        public void UpdateTitle(string title)
+        {
+            this.ValidateTitle(title);
+
+            this.Title = title;
+        }
+
+        public void UpdateStartEndDates(DateTime startDateTime, DateTime endDateTime)
+        {
+            this.ValidateStartEndDates(startDateTime, endDateTime);
+
+            this.StartDateTime = startDateTime;
+            this.EndDateTime = endDateTime;
+        }
     }
 }

@@ -4,6 +4,7 @@
     using Common;
     using Common.Models;
     using Models.Movies;
+    using OreonCinema.Domain.Bookings.Exceptions;
     using System;
 
     public class Booking : Entity<int>, IAggregateRoot
@@ -72,6 +73,21 @@
             this.BookingStatus = bookingStatus;
 
             return this;
+        }
+
+        public void ChangeOnDate(DateTime onDate)
+        {
+            this.ValidateChangeOnDate(onDate);
+
+            this.OnDate = onDate;
+        }
+
+        private void ValidateChangeOnDate(DateTime onDate)
+        {
+            Guard.AgainstDateOutOfRange<InvalidBookingException>(
+                onDate,
+                DateTime.Now.AddDays(2),
+                DateTime.Now.AddDays(10));
         }
     }
 }
