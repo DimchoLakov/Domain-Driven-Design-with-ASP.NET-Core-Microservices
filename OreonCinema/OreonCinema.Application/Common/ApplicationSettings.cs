@@ -1,4 +1,4 @@
-﻿namespace OreonCinema.Application
+﻿namespace OreonCinema.Application.Common
 {
     public class ApplicationSettings
     {

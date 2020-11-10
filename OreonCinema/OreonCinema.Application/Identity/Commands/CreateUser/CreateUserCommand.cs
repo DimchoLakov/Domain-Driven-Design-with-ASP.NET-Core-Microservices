@@ -1,5 +1,6 @@
 ﻿namespace OreonCinema.Application.Identity.Commands.CreateUser
 {
+    using Common;
     using MediatR;
     using System.Threading;
     using System.Threading.Tasks;

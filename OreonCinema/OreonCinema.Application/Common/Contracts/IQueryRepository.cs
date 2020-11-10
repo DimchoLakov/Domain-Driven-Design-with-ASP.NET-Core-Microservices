@@ -1,4 +1,4 @@
-﻿namespace OreonCinema.Application.Contracts
+﻿namespace OreonCinema.Application.Common.Contracts
 {
     using Domain.Common;
 

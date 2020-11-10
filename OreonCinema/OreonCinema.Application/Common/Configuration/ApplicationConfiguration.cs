@@ -1,4 +1,4 @@
-﻿namespace OreonCinema.Application.Configuration
+﻿namespace OreonCinema.Application.Common.Configuration
 {
     using AutoMapper;
     using Behaviours;

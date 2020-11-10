@@ -1,5 +1,6 @@
 ﻿namespace OreonCinema.Application.Identity
 {
+    using Common;
     using Commands;
     using Commands.ChangePassword;
     using Commands.LoginUser;

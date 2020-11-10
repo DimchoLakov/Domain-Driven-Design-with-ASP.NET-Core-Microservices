@@ -1,4 +1,4 @@
-﻿namespace OreonCinema.Application
+﻿namespace OreonCinema.Application.Common
 {
     using System.Threading.Tasks;
     using Domain.Common;

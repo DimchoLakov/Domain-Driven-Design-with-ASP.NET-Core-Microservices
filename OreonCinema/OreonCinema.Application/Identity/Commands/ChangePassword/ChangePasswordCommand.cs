@@ -1,6 +1,7 @@
 ﻿namespace OreonCinema.Application.Identity.Commands.ChangePassword
 {
-    using Contracts;
+    using Common;
+    using Common.Contracts;
     using MediatR;
     using System.Threading;
     using System.Threading.Tasks;

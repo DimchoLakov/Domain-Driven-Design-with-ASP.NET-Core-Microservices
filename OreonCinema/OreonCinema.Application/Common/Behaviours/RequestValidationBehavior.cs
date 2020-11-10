@@ -1,4 +1,4 @@
-﻿namespace OreonCinema.Application.Behaviours
+﻿namespace OreonCinema.Application.Common.Behaviours
 {
     using Exceptions;
     using FluentValidation;

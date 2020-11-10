@@ -1,4 +1,4 @@
-﻿namespace OreonCinema.Application.Exceptions
+﻿namespace OreonCinema.Application.Common.Exceptions
 {
     using System;
     using System.Collections.Generic;

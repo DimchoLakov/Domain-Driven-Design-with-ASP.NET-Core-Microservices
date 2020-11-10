@@ -1,4 +1,4 @@
-﻿namespace OreonCinema.Application.Mapping
+﻿namespace OreonCinema.Application.Common.Mapping
 {
     using AutoMapper;
 

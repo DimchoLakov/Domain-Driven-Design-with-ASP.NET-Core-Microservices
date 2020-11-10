@@ -1,5 +1,6 @@
 ﻿namespace OreonCinema.Application.Identity.Commands.LoginUser
 {
+    using Common;
     using MediatR;
     using System.Threading;
     using System.Threading.Tasks;
