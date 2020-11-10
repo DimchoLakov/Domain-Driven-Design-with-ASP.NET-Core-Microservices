@@ -1,22 +1,31 @@
 ﻿namespace OreonCinema.Application.Mapping
 {
+    using AutoMapper;
     using System;
     using System.Linq;
     using System.Reflection;
-    using AutoMapper;
 
     public class MappingProfile : Profile
     {
         public MappingProfile()
-            => this.ApplyMappingsFromAssembly(Assembly.GetExecutingAssembly());
+        {
+            ApplyMappingsMapFrom(Assembly.GetExecutingAssembly());
+            ApplyMappingsMapTo(Assembly.GetExecutingAssembly());
+        }
 
-        private void ApplyMappingsFromAssembly(Assembly assembly)
+        private void ApplyMappingsMapFrom(Assembly assembly)
+         => ApplyMappingsByMapperStrategyType(assembly, typeof(IMapFrom<>));
+
+        private void ApplyMappingsMapTo(Assembly assembly)
+        => ApplyMappingsByMapperStrategyType(assembly, typeof(IMapTo<>));
+
+        private void ApplyMappingsByMapperStrategyType(Assembly assembly, Type mapperStrategyType)
         {
             var types = assembly
                 .GetExportedTypes()
                 .Where(t => t
                     .GetInterfaces()
-                    .Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IMapFrom<>)))
+                    .Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == mapperStrategyType))
                 .ToList();
 
             foreach (var type in types)
@@ -26,7 +35,7 @@
                 const string mappingMethodName = "Mapping";
 
                 var methodInfo = type.GetMethod(mappingMethodName)
-                                 ?? type.GetInterface("IMapFrom`1")?.GetMethod(mappingMethodName);
+                                 ?? mapperStrategyType.GetMethod(mappingMethodName);
 
                 methodInfo?.Invoke(instance, new object[] { this });
             }
