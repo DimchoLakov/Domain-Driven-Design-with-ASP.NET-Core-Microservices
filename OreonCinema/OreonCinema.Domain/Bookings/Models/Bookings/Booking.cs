@@ -14,7 +14,8 @@
             Movie movie, 
             Screen screen, 
             Seat seat,
-            BookingStatus bookingStatus)
+            BookingStatus bookingStatus,
+            string userId)
         {
             this.Cinema = cinema;
             this.Movie = movie;
@@ -22,6 +23,7 @@
             this.Seat = seat;
             this.OnDate = DateTime.Now;
             this.BookingStatus = bookingStatus;
+            this.UserId = userId;
         }
 
         private Booking()
@@ -31,6 +33,7 @@
             this.Screen = default!;
             this.Seat = default!;
             this.BookingStatus = default!;
+            this.UserId = default!;
 
             this.OnDate = DateTime.Now;
         }
@@ -46,6 +49,9 @@
         public Seat Seat { get; private set; }
 
         public BookingStatus BookingStatus { get; private set; }
+
+        public string UserId { get; private set; }
+
 
         public Booking ChangeCinema(Cinema cinema)
         {

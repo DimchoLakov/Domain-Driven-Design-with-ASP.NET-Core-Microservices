@@ -13,12 +13,14 @@
         private Screen screen = default!;
         private Seat seat = default!;
         private BookingStatus bookingStatus = default!;
+        private string userId = default!;
 
         private bool isCinemaSet = false;
         private bool isMovieSet = false;
         private bool isScreenSet = false;
         private bool isSeatSet = false;
         private bool isBookingStatusSet = false;
+        private bool isUserIdSet = false;
 
         public IBookingFactory WithCinema(string name, string phone, Address address)
             => this.WithCinema(new Cinema(name, phone, address));
@@ -72,15 +74,24 @@
             return this;
         }
 
+        public IBookingFactory WithUserId(string userId)
+        {
+            this.userId = userId;
+            this.isUserIdSet = true;
+
+            return this;
+        }
+
         public Booking Build()
         {
             if (!this.isCinemaSet ||
                 !this.isMovieSet ||
                 !this.isScreenSet ||
                 !this.isSeatSet ||
-                !this.isBookingStatusSet)
+                !this.isBookingStatusSet ||
+                !this.isUserIdSet)
             {
-                throw new InvalidBookingException("Cinema, Movie, Screen, Seat and BookingStatus must have values.");
+                throw new InvalidBookingException("Cinema, Movie, Screen, Seat, BookingStatus and UserId must have values.");
             }
 
             return new Booking(
@@ -88,7 +99,8 @@
                 this.movie, 
                 this.screen, 
                 this.seat, 
-                this.bookingStatus);
+                this.bookingStatus,
+                this.userId);
         }
     }
 }

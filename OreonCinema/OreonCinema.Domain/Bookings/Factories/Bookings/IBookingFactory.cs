@@ -7,6 +7,8 @@
 
     public interface IBookingFactory : IFactory<Booking>
     {
+        IBookingFactory WithUserId(string userId);
+
         IBookingFactory WithCinema(Cinema cinema);
 
         IBookingFactory WithMovie(Movie movie);
