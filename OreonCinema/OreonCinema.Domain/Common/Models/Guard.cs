@@ -53,6 +53,17 @@
             ThrowException<TException>($"{name} must be between {min} and {max}.");
         }
 
+        public static void AgainstOutOfRange<TException>(double number, double min, double max, string name = "Value")
+            where TException : BaseDomainException, new()
+        {
+            if (min <= number && number <= max)
+            {
+                return;
+            }
+
+            ThrowException<TException>($"{name} must be between {min} and {max}.");
+        }
+
         public static void ForValidUrl<TException>(string url, string name = "Value")
             where TException : BaseDomainException, new()
         {
