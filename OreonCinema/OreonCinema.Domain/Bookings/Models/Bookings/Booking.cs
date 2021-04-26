@@ -52,7 +52,6 @@
 
         public string UserId { get; private set; }
 
-
         public Booking ChangeCinema(Cinema cinema)
         {
             this.Cinema = cinema;
