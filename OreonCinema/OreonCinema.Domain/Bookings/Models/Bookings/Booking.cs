@@ -10,9 +10,9 @@
     public class Booking : Entity<int>, IAggregateRoot
     {
         internal Booking(
-            Cinema cinema, 
-            Movie movie, 
-            Screen screen, 
+            Cinema cinema,
+            Movie movie,
+            Screen screen,
             Seat seat,
             BookingStatus bookingStatus,
             string userId)
@@ -54,6 +54,7 @@
 
         public Booking ChangeCinema(Cinema cinema)
         {
+            ValidateCinema(cinema);
             this.Cinema = cinema;
 
             return this;
@@ -61,7 +62,24 @@
 
         public Booking ChangeMovie(Movie movie)
         {
+            this.ValidateMovie(movie);
             this.Movie = movie;
+
+            return this;
+        }
+
+        public Booking ChangeScreen(Screen screen)
+        {
+            this.ValidateScreen(screen);
+            this.Screen = screen;
+
+            return this;
+        }
+
+        public Booking ChangeSeat(Seat seat)
+        {
+            this.ValidateSeat(seat);
+            this.Seat = seat;
 
             return this;
         }
@@ -93,6 +111,26 @@
                 onDate,
                 DateTime.Now.AddDays(2),
                 DateTime.Now.AddDays(10));
+        }
+
+        private void ValidateCinema(Cinema cinema)
+        {
+            Guard.AgainstNull<InvalidBookingException, Cinema>(cinema, nameof(this.Cinema));
+        }
+
+        private void ValidateMovie(Movie movie)
+        {
+            Guard.AgainstNull<InvalidBookingException, Movie>(movie, nameof(this.Movie));
+        }
+
+        private void ValidateScreen(Screen screen)
+        {
+            Guard.AgainstNull<InvalidBookingException, Screen>(screen, nameof(this.Screen));
+        }
+
+        private void ValidateSeat(Seat seat)
+        {
+            Guard.AgainstNull<InvalidBookingException, Seat>(seat, nameof(this.Seat));
         }
     }
 }

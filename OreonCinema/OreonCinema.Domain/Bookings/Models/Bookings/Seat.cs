@@ -5,7 +5,7 @@
 
     using static ModelConstants.Seat;
 
-    public class Seat : ValueObject
+    public class Seat : Entity<int>
     {
         internal Seat(int rowNumber, string rowLetter, SeatStatus seatStatus)
         {

@@ -67,7 +67,7 @@
         public static void ForValidUrl<TException>(string url, string name = "Value")
             where TException : BaseDomainException, new()
         {
-            if (url.Length <= MaxUrlLength && 
+            if (url.Length <= MaxUrlLength &&
                 Uri.IsWellFormedUriString(url, UriKind.Absolute))
             {
                 return;
@@ -108,6 +108,15 @@
             }
 
             ThrowException<TException>($"{name} must be in range \"{minDateTime}\" and \"{maxDateTime}\".");
+        }
+
+        public static void AgainstNull<TException, TModel>(TModel model, string name = "Value")
+            where TException : BaseDomainException, new()
+        {
+            if (model == null)
+            {
+                ThrowException<TException>($"{name} must not be null.");
+            }
         }
 
         public static void ForRegex<TException>(string value, string pattern, string name = "Value")
