@@ -1,5 +1,6 @@
 ﻿namespace OreonCinema.Domain.Bookings.Repositories
 {
+    using OreonCinema.Domain.Bookings.Models.Bookings;
     using OreonCinema.Domain.Bookings.Models.Cinemas;
     using OreonCinema.Domain.Common;
     using System.Threading;
@@ -12,5 +13,7 @@
         Task<bool> Delete(int id, CancellationToken cancellationToken = default);
 
         Task<Address> GetAddress(int cinemaId, CancellationToken cancellationToken = default);
+
+        Task<Screen> GetScreenById(int screenId, CancellationToken cancellationToken = default);
     }
 }
